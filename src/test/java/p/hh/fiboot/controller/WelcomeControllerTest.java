@@ -43,7 +43,7 @@ public class WelcomeControllerTest {
 
     @Test
     public void index() throws Exception {
-        this.mockMvc.perform(get("/").accept(MediaType.TEXT_PLAIN))
+        this.mockMvc.perform(get("/welcome").accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andDo(document("index"));
