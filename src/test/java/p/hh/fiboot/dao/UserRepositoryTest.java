@@ -6,12 +6,10 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import p.hh.fiboot.domain.User;
 
-import javax.sql.DataSource;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -23,7 +21,7 @@ import static org.junit.Assert.*;
 public class UserRepositoryTest {
 
     @Autowired
-    private UserRepository userRepository;
+    private UserDao userRepository;
 
     @Test
     public void findTest() {

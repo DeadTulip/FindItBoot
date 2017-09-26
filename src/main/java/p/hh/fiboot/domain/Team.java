@@ -1,11 +1,18 @@
 package p.hh.fiboot.domain;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "team")
+@Getter
+@Setter
+@NoArgsConstructor
 public class Team extends BaseEntity {
 
     @Column(name = "teamname")
@@ -30,31 +37,4 @@ public class Team extends BaseEntity {
             inverseJoinColumns = { @JoinColumn(name = "item_id", nullable = false) }
     )
     private final Set<Item> items = new HashSet<Item>();
-
-    public Team() {
-    }
-
-    public String getTeamName() {
-        return teamName;
-    }
-
-    public void setTeamName(String teamName) {
-        this.teamName = teamName;
-    }
-
-    public User getCreator() {
-        return creator;
-    }
-
-    public void setCreator(User creator) {
-        this.creator = creator;
-    }
-
-    public Set<User> getMembers() {
-        return members;
-    }
-
-    public Set<Item> getItems() {
-        return items;
-    }
 }

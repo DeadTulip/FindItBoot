@@ -1,11 +1,19 @@
 package p.hh.fiboot.domain;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "user")
+@Getter
+@Setter
+@NoArgsConstructor
 public class User extends BaseEntity {
 
     private static final long serialVersionUID = -3512521164157856626L;
@@ -26,28 +34,7 @@ public class User extends BaseEntity {
             joinColumns = { @JoinColumn(name = "user_id", nullable = false) },
             inverseJoinColumns = { @JoinColumn(name = "team_id", nullable = false) }
     )
+    @Setter(AccessLevel.NONE)
     private final Set<Team> teams = new HashSet<Team>();
 
-    public User() {
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Set<Team> getTeams() {
-        return teams;
-    }
 }

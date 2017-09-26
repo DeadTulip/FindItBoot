@@ -1,11 +1,16 @@
 package p.hh.fiboot.domain;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
 @DiscriminatorValue("D")
+@Getter @Setter @NoArgsConstructor
 public class DiskItem extends Item {
 
     @Column(name = "file_type")
@@ -14,22 +19,4 @@ public class DiskItem extends Item {
     @Column(name = "file_size")
     private Long fileSize;
 
-    public DiskItem() {
-    }
-
-    public String getFileType() {
-        return fileType;
-    }
-
-    public void setFileType(String fileType) {
-        this.fileType = fileType;
-    }
-
-    public Long getFileSize() {
-        return fileSize;
-    }
-
-    public void setFileSize(Long fileSize) {
-        this.fileSize = fileSize;
-    }
 }
